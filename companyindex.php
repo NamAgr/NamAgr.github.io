@@ -61,12 +61,12 @@ if( $query_run = mysqli_query($conn, $query) ){
         <div class="container">
             <div class="row">
                 <div class="col l6 m6 s12">
-                    <div class="card hoverable">
+                    <div class="card hoverable" style="transform: translateX(50%);">
                         <div class="card-image">
-                            <img src="img/classgift.jpg">
+                            <!-- <img src=""> -->
                         </div>
-                        <div class="card-content" style="height: 317px">
-                            <span class="card-title">POST A JOB</span>
+                        <div class="card-content">
+                            <center><span class="card-title">POST A JOB</span></center>
                             <p class="text" style="font-size: 100%; padding-bottom: 12px;">Alumni of IIT Kharagpur can now offer freelancing jobs to the alma mater.
                             </p>
                             <div class="row" align="center">
@@ -261,21 +261,6 @@ if( $query_run = mysqli_query($conn, $query) ){
         $('select').material_select();
     });
 </script>
-<!-- <script type="text/javascript">
-	$(document).ready(function() {
-		$('.apply_btn').click(function() {
-			var id = $(this).attr('id');
-			$.ajax({
-				type: 'post',
-				url: 'getdata.php',
-				data: {'id': id, 'job': 1},
-				success: function (response) {
-					document.getElementById('job_data').innerHTML = response;
-				}
-			});
-		});
-	});
-</script> -->
 <?php
 
 if(@$_SESSION['posted'] == 1) {
