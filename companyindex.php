@@ -120,7 +120,7 @@ if( $query_run = mysqli_query($conn, $query) ){
                 </div>
                 </div>
                 <div class="row" style="margin-bottom: 0;">
-                <button class="btn modal-trigger animated apply_btn" name="companyJob" href="" id="'.$jobs[$i]['id'].'" style="margin-left: 10px; margin-top: 5px;">See Details</button>
+                <a class="btn modal-trigger animated apply_btn" name="companyJob" href="#modal" id="'.$jobs[$i]['id'].'" style="margin-left: 10px; margin-top: 5px;">See Details</a>
                 </div>
                 </div>
                 </div>
@@ -257,8 +257,23 @@ if( $query_run = mysqli_query($conn, $query) ){
 	});
 	$(document).ready(function() {
         $('.tooltipped').tooltip();
-		$('.modal-trigger').leanModal();
+        $('.modal-trigger').leanModal();
         $('select').material_select();
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.apply_btn').click(function() {
+            var id = $(this).attr('id');
+            $.ajax({
+                type: 'post',
+                url: 'getdata.php',
+                data: {'id': id, 'job': 1},
+                success: function (response) {
+                    document.getElementById('job_data').innerHTML = response;
+                }
+            });
+        });
     });
 </script>
 <?php
